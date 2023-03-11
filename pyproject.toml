@@ -35,6 +35,5 @@ line_length = 79
 [tool.taskipy.tasks]
 lint = "blue --check --diff . && isort --check --diff ."
 docs = "mkdocs serve"
-pre_test = "lint"
-test = "pytest -s -x -cov=musical-notes -vv"
+test = "pytest -s -x --cov=musical_notes -vv"
 post_test = "coverage html"
