@@ -6,6 +6,9 @@ authors = ["guilhermedurbano <guilhermedurbano@gmail.com>"]
 readme = "README.md"
 packages = [{include = "musical_notes"}]
 
+[tool.poetry.scripts]
+escalas = "musical_notes.cli:app"
+
 [tool.poetry.dependencies]
 python = "^3.9"
 typer = "^0.7.0"
