@@ -8,6 +8,8 @@ packages = [{include = "musical_notes"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+typer = "^0.7.0"
+rich = "^13.3.3"
 
 
 [tool.poetry.group.dev.dependencies]
