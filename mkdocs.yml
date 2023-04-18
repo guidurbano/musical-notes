@@ -15,6 +15,9 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 
+watch:
+  - musical_notes
+
 plugins:
   - mkdocstrings:
       handlers:
