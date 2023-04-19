@@ -25,6 +25,11 @@ mkdocstrings = "^0.20.0"
 mkdocstrings-python = "^0.8.3"
 taskipy = "^1.10.3"
 
+
+[tool.poetry.group.doc.dependencies]
+mkdocs-macros-plugin = "^0.7.0"
+Jinja2 = "^3.1.2"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
