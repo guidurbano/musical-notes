@@ -2,3 +2,28 @@
     display: block;
     margin: auto;
 }
+
+#cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px #ededed;
+    padding: 30px;
+    margin: 30px;
+    transition: all 0.1s ease-out;
+    width: 500px;
+    border-top: solid #677beb;
+
+}
+.card:hover {
+    transform:translateY(-5px);
+    cursor: pointer;
+}
+
+.mermaid {
+    align-items: center;
+}
