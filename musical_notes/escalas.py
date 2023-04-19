@@ -1,3 +1,26 @@
+"""
+Módulo das escalas musicais.
+
+Attributes:
+    ESCALAS: Escalas implementadas usando a notação de inteiros
+    NOTAS: Notas musicais
+
+# ESCALAS
+As escalas estão implementadas em uma constante `ESCALAS`.
+Se quiser ver todas as escalas implementadas pode usar:
+
+```py title="Interactive Shell"
+>>> from musical_notes.escalas import ESCALAS
+>>> ESCALAS
+{'maior': (0, 2, 4, 5, 7, 9, 11), 'menor': (0, 2, 3, 5, 7, 8, 10)}
+
+```
+
+A notação inteira para as escalas foi retirada da pagina da wikipedia
+
+# Notas
+"""
+
 NOTAS = 'C C# D D# E F F# G G# A A# B'.split()
 ESCALAS = {
     'maior': (0, 2, 4, 5, 7, 9, 11),
