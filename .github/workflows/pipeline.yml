@@ -1,0 +1,13 @@
+name: Pipeline
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Copy files
+        run: actions/checkout@v3.3.0
+
+      - name: Show values
+        run: echo $(ls)
