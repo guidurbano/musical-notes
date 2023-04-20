@@ -7,7 +7,9 @@ jobs:
 
     steps:
       - name: Copy files
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3
 
-      - name: Show values
-        run: echo $(ls)
+      - name: Install pyython
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
