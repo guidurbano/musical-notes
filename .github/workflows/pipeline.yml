@@ -9,7 +9,16 @@ jobs:
       - name: Copy files
         uses: actions/checkout@v3
 
-      - name: Install pyython
+      - name: Install python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
+
+      - name: Install poetry
+        run: pip install poetry
+
+      - name: Install dependencies
+        run: poetry install --without docs
+
+      - name: Run tests
+        run: poetry run task test
