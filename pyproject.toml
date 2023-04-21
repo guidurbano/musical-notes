@@ -5,6 +5,12 @@ description = ""
 authors = ["guilhermedurbano <guilhermedurbano@gmail.com>"]
 readme = "README.md"
 packages = [{include = "musical_notes"}]
+classifiers = [
+    "Topic :: Education",
+    "Environment :: Console",
+    "Natural Language :: Portuguese (Brazilian)",
+    "Development Status :: 5 - Production/Stable",
+]
 
 [tool.poetry.scripts]
 musical-notes = "musical_notes.cli:app"
@@ -20,14 +26,14 @@ pytest = "^7.2.2"
 pytest-cov = "^4.0.0"
 blue = "^0.9.1"
 isort = "^5.12.0"
-mkdocs-material = "^9.1.0"
-mkdocstrings = "^0.20.0"
-mkdocstrings-python = "^0.8.3"
 taskipy = "^1.10.3"
 
 
 [tool.poetry.group.doc.dependencies]
 mkdocs-macros-plugin = "^0.7.0"
+mkdocs-material = "^9.1.0"
+mkdocstrings = "^0.20.0"
+mkdocstrings-python = "^0.8.3"
 Jinja2 = "^3.1.2"
 
 [build-system]
