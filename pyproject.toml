@@ -10,7 +10,13 @@ classifiers = [
     "Environment :: Console",
     "Natural Language :: Portuguese (Brazilian)",
     "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3.11",
 ]
+
+[tool.poetry.urls]
+"Documentation" = "https://musical-notes-docs.readthedocs.io/en/latest/?"
+"Repo" = "https://github.com/guidurbano/musical-notes"
+"Issues" = "https://github.com/guidurbano/musical-notes/issues"
 
 [tool.poetry.scripts]
 musical-notes = "musical_notes.cli:app"
