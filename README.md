@@ -33,7 +33,7 @@ pip install musical-notes
 You can call the `scale` via the command line. For example:
 
 ```bash
-musical_notes "scale"
+musical_notes scale
 ```
 
 Returning the degrees and corresponding notes to this scale:
