@@ -1,5 +1,5 @@
 from pytest import mark
-from musical_notes.acordes import acorde
+from musical_notes.chords import acorde
 
 """
 {'notas': ['C', 'E', 'G'], 'graus': ['I', 'III', 'V']}

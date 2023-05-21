@@ -1,1 +1,0 @@
-::: campo_harmonico

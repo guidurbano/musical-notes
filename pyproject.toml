@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "musical-notes"
 version = "0.1.0"
-description = "Notas musicais é um CLI para ajudar na formação de escalas, acordes e campos harmônicos."
+description = "Musical Notes is a CLI tool to assist with the formation of scales, chords, and harmonic fields."
 license = "BeerWare"
 authors = ["guilhermedurbano <guilhermedurbano@gmail.com>"]
 readme = "README.md"
@@ -9,7 +9,7 @@ packages = [{include = "musical_notes"}]
 classifiers = [
     "Topic :: Education",
     "Environment :: Console",
-    "Natural Language :: Portuguese (Brazilian)",
+    "Natural Language :: English",
     "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python :: 3.11",
 ]

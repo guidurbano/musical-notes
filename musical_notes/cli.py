@@ -2,52 +2,51 @@ from rich.console import Console
 from rich.table import Table
 from typer import Argument, Typer
 
-from musical_notes.escalas import escala as _escala
-from musical_notes.campo_harmonico import campo_harmonico as _campo_harmonico
-from musical_notes.acordes import acorde as _acorde
+from musical_notes.scales import scale as _scale
+from musical_notes.harmonic_field import harmonic_field as _harmonic_field
+from musical_notes.chords import chord as _chord
 
 console = Console()
 app = Typer()
 
 
 @app.command()
-def escala(
-    tonica: str = Argument('c', help='Tônica da escala'),
-    tonalidade: str = Argument('maior', help='Tonalidade da escala'),
+def scale(
+    tonic: str = Argument('c', help='Tonic of the scale'),
+    tonality: str = Argument('major', help='Tonality of the scale'),
 ):
     table = Table()
-    notas, graus = _escala(tonica, tonalidade).values()
+    notes, degrees = _scale(tonic, tonality).values()
 
-    for grau in graus:
-        table.add_column(grau)
+    for degree in degrees:
+        table.add_column(degree)
 
-    table.add_row(*notas)
+    table.add_row(*notes)
     console.print(table)
 
 
 @app.command()
-def acorde(cifra: str = Argument('C', help='Cifra do acorde')):
+def chord(chord_symbol: str = Argument('C', help='Chord symbol')):
     table = Table()
-    notas, graus = _acorde(cifra).values()
+    notes, degrees = _chord(chord_symbol).values()
 
-    for grau in graus:
-        table.add_column(grau)
+    for degree in degrees:
+        table.add_column(degree)
 
-    table.add_row(*notas)
+    table.add_row(*notes)
     console.print(table)
 
 
 @app.command()
-def campo_harmonico(tonica: str = Argument('c',
-                                           help='Tônica do campo harmonico'
-                                           ),
-                    tonalidade: str = Argument('maior',
-                                               help='Tonalidade do campo')):
+def harmonic_field(tonic: str = Argument('c',
+                                         help='Tonic of the harmonic field'),
+                   tonality: str = Argument('major',
+                                            help='Tonality of the field')):
     table = Table()
-    acordes, graus = _campo_harmonico(tonica, tonalidade).values()
+    chords, degrees = _harmonic_field(tonic, tonality).values()
 
-    for grau in graus:
-        table.add_column(grau)
+    for degree in degrees:
+        table.add_column(degree)
 
-    table.add_row(*acordes)
+    table.add_row(*chords)
     console.print(table)

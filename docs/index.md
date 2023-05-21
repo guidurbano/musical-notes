@@ -1,27 +1,26 @@
 ![project_logo](assets/logo.png){ width="400" .center }
 # Musical notes
 
-Notas musicais é um CLI para ajudar na formação de escalas, acordes e campos
-harmônicos.
+Musical Notes is a CLI tool to help with scales, chords, and harmonic fields.
 
-Toda aplicação é baseada em um comando `musical-notes`. Esse comando
-tem um subcomando relacionado a cada ação que a aplicação pode realizar.
-Como `escalas`, `acordes` e `campo-harmonico`.
+The entire application is based on a `musical-notes` command. This command
+has subcommands related to each action that the application can perform,
+such as `scales`, `chords`, and `harmonic-field`.
 {% include "templates/cards.html" %}
 
 
 {% include "templates/instalacao.md" %}
 
-## Como usar?
-### Escalas
+## How to use it?
+### Scale
 
-Você pode chamar as escalas via linha de comando. Por exemplo:
+You can call scales through command line. For example:
 
 ```bash
-{{ commands.run }} escala
+{{ commands.run }} scale
 ```
 
-Retornando os graus e as notas correspondentes a essa escala:
+Retorning degrees and corresponding notes to the scale:
 ```
 ┏━━━┳━━━━┳━━━━━┳━━━━┳━━━┳━━━━┳━━━━━┓
 ┃ I ┃ II ┃ III ┃ IV ┃ V ┃ VI ┃ VII ┃
@@ -30,13 +29,12 @@ Retornando os graus e as notas correspondentes a essa escala:
 └───┴────┴─────┴────┴───┴────┴─────┘
 ```
 
-#### Alteração na tônica da escala
+#### Tonic variation of the scale
 
-O primeiro parâmetro do CLI é a tônica da escala que deseja exibir. Desta forma,
-você pode alterar a escala retornada. Por exemplo, a escala de `F#`:
+The first parameter of the CLI is the scale's tonic. Therefore, you can change the scale returned. For example, the scale of `F#`:
 
 ```bash
-{{ commands.run }} escalas F#
+{{ commands.run }} scale F#
 ```
 
 ```
@@ -47,13 +45,13 @@ você pode alterar a escala retornada. Por exemplo, a escala de `F#`:
 └────┴────┴─────┴────┴────┴────┴─────┘
 ```
 
-#### Alteração na tonalidade da escala
+#### Tonality variation of the scale
 
-O segundo parâmetro do CLI é a tonalidade da escala.
-Por exemplo, a escala de `D#` maior:
+The second parameter of the CLI is tonality of the scale.
+For example, the scale of `D#` major:
 
 ```bash
-{{ commands.run }} escalas D# maior
+{{ commands.run }} scale D# major
 ```
 
 ```
@@ -64,12 +62,10 @@ Por exemplo, a escala de `D#` maior:
 └────┴────┴─────┴────┴────┴────┴─────┘
 ```
 
-### Acordes
-
-Uso básica
+### Chords
 
 ```bash
-{{ commands.run }} acorde
+{{ commands.run }} chord
 ┏━━━┳━━━━━┳━━━┓
 ┃ I ┃ III ┃ V ┃
 ┡━━━╇━━━━━╇━━━┩
@@ -77,10 +73,10 @@ Uso básica
 └───┴─────┴───┘
 ```
 
-### Variações na cifra
+### Variations in the chord
 
 ```bash
-{{ commands.run }} acorde C+
+musical_notes chord C+
 ┏━━━┳━━━━━┳━━━━┓
 ┃ I ┃ III ┃ V+ ┃
 ┡━━━╇━━━━━╇━━━━┩
@@ -88,19 +84,18 @@ Uso básica
 └───┴─────┴────┘
 ```
 
-Até o momento você pode usar acordes maiores, menores, diminuto e aumentados.
+So far, you can use major, minor, diminished, and augmented chords.
 
-!!! info "Sobre os acordes"
-    Pode ser que os acordes que você busque ainda não tenham sido implementados.
-    No momento, somente acordes com tríades foram implementados
+!!! warning "About the chords"
+	It is possible that the chords you are looking for have not yet been implemented. At the time I am writing this tutorial, only triad chords have been implemented. Therefore, you can use major, minor, augmented, and diminished chords.
 
 ### Campo harmônico
 
-Você pode chamr os campos harmônicos via o subcomando `campo-harmonico`. Por
-exemplo,
+You can call the harmonic field via the subcommand `harmonic-field`
+For example,
 
 ```bash
-{{ commands.run }} campo-harmonico
+musical_notes harmonic-field
 ┏━━━┳━━━━┳━━━━━┳━━━━┳━━━┳━━━━┳━━━━━━┓
 ┃ I ┃ ii ┃ iii ┃ IV ┃ V ┃ vi ┃ vii° ┃
 ┡━━━╇━━━━╇━━━━━╇━━━━╇━━━╇━━━━╇━━━━━━┩
@@ -108,22 +103,23 @@ exemplo,
 └───┴────┴─────┴────┴───┴────┴──────┘
 ```
 
-Por padrão os parâmetros utilizados são a tônica de `C` e o campo harmônico `maior`
+By default, the parameters used are the tonic of `C` and the `major` harmonic field.
 
-### Alteração nos campos harmônicos
+### Changes to the harmonic fields
 
-Você pode alterar os parâmetros da tônica e da tonalidade.
+You can change the tonic and tonality parameters.
 
 ```bash
-{{ commands.run }} campo-harmonico [TONICA] [TONALIDADE]
+musical_notes harmonic-field [TONIC] [TONALITY]
 ```
 
-#### Alteração na tônica do campo harmônico
+#### Variation of tonic
 
-Um exemplo com o campo harmônico de E:
+You can send the `tonic` of the harmonic field as the first parameter.
+Such as the A major harmonic field:
 
 ```bash
-{{ commands.run }} campo-harmonico E
+musical_notes harmonic-field E
 ┏━━━┳━━━━━┳━━━━━┳━━━━┳━━━┳━━━━━┳━━━━━━┓
 ┃ I ┃ ii  ┃ iii ┃ IV ┃ V ┃ vi  ┃ vii° ┃
 ┡━━━╇━━━━━╇━━━━━╇━━━━╇━━━╇━━━━━╇━━━━━━┩
@@ -131,12 +127,12 @@ Um exemplo com o campo harmônico de E:
 └───┴─────┴─────┴────┴───┴─────┴──────┘
 ```
 
-#### Alteração da tonalidade do campo harmônico
+#### Change of tonality of the harmonic field
 
-Um exemplo mudando o campo harmônico para menor de E:
+An example changing the harmonic field to E minor:
 
 ```bash
-{{ commands.run }} campo-harmonico E menor
+musical_notes harmonic-field E minor
 ┏━━━━┳━━━━━┳━━━━━┳━━━━┳━━━━┳━━━━┳━━━━━┓
 ┃ i  ┃ ii° ┃ III ┃ iv ┃ v  ┃ VI ┃ VII ┃
 ┡━━━━╇━━━━━╇━━━━━╇━━━━╇━━━━╇━━━━╇━━━━━┩
@@ -144,32 +140,33 @@ Um exemplo mudando o campo harmônico para menor de E:
 └────┴─────┴─────┴────┴────┴────┴─────┘
 ```
 
-## Mais informações sobre o CLI
+## More information about the CLI
 
-Para descobrir outras opções, você pode usar a flag `--help`
+If you want to discover more utilities for the commands, you can use the
+`--help` flag in all subcommands.
 
 ```bash
-{{ commands.run }} --help
+musical_notes --help
 
 Usage: musical-notes [OPTIONS] COMMAND [ARGS]...
-Commands  acorde campo-harmonico escala
+Commands  chord harmonic-field scale
 ```
 
 
 ```
 
- Usage: musical-notes escalas [OPTIONS] [TONICA] [TONALIDADE]
+ Usage: musical-notes scale [OPTIONS] [TONIC] [TONALITY]
 
   Arguments
-   tonica          [TONICA]      Tônica da escala [default:c]
-   tonalidade      [TONALIDADE]  Tonalidade da escala [default: maior]
+   tonic          [TONIC]      Tonic of the scale [default:c]
+   tonality      [TONALITY]  Tonality of the scale [default: major]
 ```
 
 ```
 
- Usage: musical-notes campo-harmonico [OPTIONS] [TONICA] [TONALIDADE]
+ Usage: musical-notes harmonic-field [OPTIONS] [TONIC] [TONALITY]
 
   Arguments
-   tonica          [TONICA]      Tônica do campo harmonico [default:c]
-   tonalidade      [TONALIDADE]  Tonalidade do campo [default: maior]
+   tonic          [TONIC]      Tonic of the scale [default:c]
+   tonality      [TONALITY]  Tonality of the scale [default: major]
 ```

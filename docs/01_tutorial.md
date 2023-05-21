@@ -1,165 +1,187 @@
 # Tutorial
 
-Se você chegou até aqui, significa que quer aprender mais sobre o `notas-musicais`.
+If you've made it this far, it means you want to learn more about  `musical-notes` .
 
-O objetivo desse projeto é ajudar estudantes de música ou profissionais a obter fácil acesso a escalas, formação de acordes e campos harmônicos. Onde cada um desses comandos é distribuído em um subcomando do nosso cli.
+The objective of this project is to help music students or professionals
+to easily access scales, chord formation, and harmonic fields.
+Each of these commands is distributed in a subcommand of our cli.
 
 {% include "templates/instalacao.md" %}
 
 
-## Os comandos
+## The commands
 
-O `notas-musicais` distribui cada função em um subcomando e você executar cada um deles para testar agora. O objetivo desse tutorial é explicar o básico do funcionamento da aplicação em linha de comando.
+`musical-notes` distributes each function into a subcommand and you can
+run each of them to test now. The objective of this tutorial is to explain
+ the basic functioning of the command-line application.
 
-Os subcomandos são divididos em três funções até o momento: `escalas`, `acordes` e `campo-harmonico`.
+The subcommands are divided into three functions so far: `scales`, `chords`,
+ and `harmonic-fields`.
 
-Vamos entender o que cada um se propõe a fazer agora.
+Let's understand what each one proposes to do now.
 
-### Escalas
+### Scales
 
-O subcomando de escalas nos auxilia a ter fácil acesso à formação das escalas musicais.
+The `scale` subcommand helps us to have easy access to the formation of
+musical scales.
 
-Caso seja invocado sem nenhum parâmetro, retornará a escala de Dó maior:
+If invoked without any parameters, it will return the C major scale:
 
 ```bash
-{{ commands.run }} escalas
+{{ commands.run }} scale
 ```
 
-Com isso será fornecida uma tabela no terminal informando a escala:
+This will provide a table in the terminal informing the scale:
 
 | I | II | III | IV | V | VI | VII |
 | - | -- | --- | -- | - | -- | --- |
 | C | D  | E   | F  | G | A  | B   |
 
 
-Um exemplo da tabela no terminal:
+One example of this in the terminal:
 
 ![](assets/tutorial/img_01.png)
 
 
-#### Variações nas escalas
+#### Variations in scales
 
-Para alterar as escalas, você pode alterar os parâmetros: `tonica` e `tonalidade`. Eles são chamados na seguinte ordem:
-
-```bash
-{{ commands.run }} escala [TONICA] [TONALIDADE]
-```
-
-##### Variação da tônica
-
-A variação da tônica pode ser feita em qualquer nota. Por exemplo, se quisermos alteração da escala de Fá sustenido:
+To change the scales, you can change the parameters: `tonic` and
+`tonality`. They are called in the following order:
 
 ```bash
-{{ commands.run }} escala F#
+{{ commands.run }} scale [TONIC] [TONALITY]
 ```
 
-Isso nos fornecerá, o seguinte resultado:
+##### Tonic variation
 
-| I | II | III | IV | V | VI | VII |
-| - | -- | --- | -- | - | -- | --- |
-| F# | G#  | A#   | B  | C# | D#  | F   |
+The tonic variation can be done on any note. For example, if we want to
+change the scale of F sharp (F#):
 
-No terminal:
+```bash
+{{ commands.run }} scale F#
+```
+
+This will give us the following result:
+
+| I  | II | III | IV | V | VI  | VII |
+| -  | -- | --- | -- | - | --  | --- |
+| F# | G# | A#  | B  | C# | D# | F   |
+
+In terminal:
 
 ![](assets/tutorial/img_02.png)
 
 
-##### Variação da tonalidade
+##### Tonality variation
 
-Você pode alterar a tonalidade usando o segundo parâmetro. Por exemplo, a escala menor de Ré:
+You can change the tonality using the second parameter. For example,
+the minor scale of D:
 
 ```bash
-{{ commands.run }} escala d menor
+{{ commands.run }} scale d minor
 ```
 
-Obtendo a seguinte tabela:
+Getting the following table:
 
 | I | II | III | IV | V | VI | VII |
 | - | -- | --- | -- | - | -- | --- |
 | D | E  | F   | G  | A | A# | C   |
 
 
-Um exemplo da visualização no terminal:
+An example of the visualization in the terminal:
 
 ![](assets/tutorial/img_03.png)
 
 
-### Acordes
+### Chords
 
-O subcomando de acordes se baseia em mostrar em quais graus estão relacionados dentro da escala maior. De forma em que você passa uma cifra e ele diga quais são as notas contidas nesse acorde e os graus correspondentes.
+The chords subcommand is based on showing which degrees are related within
+the major scale. In a way that you pass a chord and it tells you which
+notes are contained in that chord and the corresponding degrees.
 
-Por exemplo, um acorde de Ré menor aumentado `Dm+`:
+For example, a D minor augmented chord `Dm+`:
 
 ```bash
-{{ commands.run }} acorde Dm+
+{{ commands.run }} chord Dm+
 ```
-isso nos mostrará os graus e as notas referentes a esse acorde em relação à escala maior de ré:
+this will show us the degrees and notes corresponding to this chord in
+relation to the major scale of D:
 
 | I | III- | V+ |
 | - | ---- | -- |
 | D | F    | A# |
 
-Pontos a se observar em relação a essa resposta:
+Points to note regarding this response:
 
-- O sinal de `-` simboliza um semitom a menos. Ou seja, para ser o acorde maior, necessitaria que `F` fosse um `F#`.
-- O sinal de `+` simboliza um semitom a mais. Ou seja, para ser o acorde maior, necessitaria que `A#` fosse um `A`.
 
-!!! warning "Sobre os acordes"
-	Pode ser que os acordes que você busque ainda não tenham sido implementados. No momento em que escrevo esse tutorial, somente acordes de tríade foram implementados. Dessa forma você pode usar acordes maiores, menores, aumentados e diminuto.
 
-#### Outro exemplo para fixação
+- The `-` symbolizes one semitone less. That is, to be the major chord,
+`F` would have to be an `F#`.
+- The `+` symbolizes one semitone more. That is, to be the major chord,
+ `A#` would have to be an `A`.
 
-Se quisermos ver um acorde maior de Dó, poderíamos passar sua cifra e ver o resultado:
+!!! warning "About the chords"
+	It is possible that the chords you are looking for have not yet been
+	implemented. At the time I am writing this tutorial, only triad chords
+	have been implemented. Therefore, you can use major, minor, augmented
+	and diminished chords.
+#### Another example for fixation
+
+If we want to see a C major chord, we could pass its symbol and see the result:
 
 ```bash
-{{ commands.run }} acorde c
+{{ commands.run }} chord c
 ```
 
-Obtendo o seguinte resultado
+Obtaining the following result:
 
 | I | III | V |
 | - | --- | - |
 | C | E   | G |
 
 
-Note que nesse caso não temos nenhuma variação entre graus. Pois, o acorde já é maior!
+Note that in this case, we do not have any variation between degrees
+because the chord is already major!
 
-Um exemplo da visualização da tabela no terminal:
+An example of the visualization of the table in the terminal:
 
 ![](assets/tutorial/img_04.png)
 
 
-### Campos harmônicos
+### Harmonic fields
 
 
-Os campos harmônicos são as representações da escala com o uso de acordes. E seu subcomando tem o uso idêntico ao da `escala`. Variando, porém, sua chamada para `campo-haronico`:
-
-```bash
-{{ commands.run }} campo-harmonico [TONICA] [TONALIDADE]
-```
-
-#### Uso básico
-
-Caso o comando seja chamado sem nenhuma tônica, retornará o campo harmônico de Dó maior:
+Harmonic fields are the representations of the scale using chords. And
+its subcommand has the same usage as `scale`. However, its call varies to `harmonic-field`:
 
 ```bash
-{{ commands.run }} campo-harmonico
+{{ commands.run }} harmonic-field [TONIC] [TONALITY]
 ```
 
-Obtendo, assim, uma tabela com todos os acordes correspondentes a esse campo:
+#### Basic usage
+
+If the command is called without any tonic, it will return the C major
+harmonic field:
+
+```bash
+{{ commands.run }} harmonic-field
+```
+
+Obtaining, therefore, a table with all the corresponding chords of this field:
 
 | I | ii | iii | VI | V | vi | vii° |
 | - | -- | --- | -- | - | -- | ---- |
 | C | Dm | Em  | F  | G | Am | B°   |
 
 
-#### Variação de tônica
+#### Variation of tonic
 
-Você pode enviar a tônica do campo harmônico como o primeiro parâmetro. Como o campo harmônico maior de La:
+You can send the `tonic` of the harmonic field as the first parameter.
+Such as the A major harmonic field:
 
 
 ```bash
-{{ commands.run }} campo-harmonico A
+{{ commands.run }} harmonic-field A
 ```
 
 | I | ii | iii | VI | V | vi | vii° |
@@ -167,39 +189,42 @@ Você pode enviar a tônica do campo harmônico como o primeiro parâmetro. Como
 | A | Bm | C#m | D  | E | F#m | G#° |
 
 
-#### Variação de tonalidade
+#### Variation of tonality
 
-O segundo parâmetro do comando de `campo-harmonico` é a tonalidade. Vamos pedir um campo harmônico menor de Sol:
-
+The second parameter of the `harmonic-field` command is the `tonality`.
+Let's request a minor G harmonic field:
 
 ```bash
-{{ commands.run }} campo-harmonico G menor
+{{ commands.run }} harmonic-field G minor
 ```
 
-Obteremos a varição da tonalidade
+We will obtain the variation of the tonality
 
-| i | ii° | III | iv | v | VI | VII |
-| - | --- | --- | -- | - | -- | --- |
-| Gm | A° | A# | Cm | Dm | D# | F |
+| i | ii° | III | iv | v  | VI | VII |
+| - | --- | --- | -- | -  | -- | --- |
+| Gm | A° | A# | Cm  | Dm | D# | F   |
 
-Um exemplo de como isso se apresenta no terminal:
+An example of how this is presented in the terminal:
 
 ![](assets/tutorial/img_05.png)
 
-## Para saber mais
+## To know more
 
-Caso queira descobrir mais utilidades para os comandos, você pode usar a flag `--help` em todos os subcomandos.
+If you want to discover more utilities for the commands,
+you can use the `--help` flag in all subcommands.
 
-Dessa forma descobrir novas formas de usar o `notas-musicais`:
+This way, you can discover new ways to use musical-notes:
 
 ```bash
-notas-musicais [comando] --help
+musical-notes [command] --help
 ```
 
-## Sobre esse tutorial
+## About this tutorial
 
-Esse tutorial foi escrito em `2023-02-06`, os comandos podem receber novas atualizações. Então consultar o `--help` é uma boa maneira de se manter atualizado.
+This tutorial was written on 2023-05-01, the commands may receive new updates.
+ So, consulting `--help` is a good way to stay updated.
 
-Caso tenha encontrado algum erro no tutorial ou deseje melhorar seu texto. Fique a vontade para contribuir com o projeto no link a seguir.
+If you have found any errors in the tutorial or wish to improve its text.
+Feel free to contribute to the project at the link below.
 
-[Como contribuir com o projeto?](/02_contribua/)
+[How to contribute?](/02_contribute/)

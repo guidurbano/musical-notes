@@ -5,41 +5,39 @@
 [![codecov](https://codecov.io/gh/guidurbano/musical-notes/branch/main/graph/badge.svg?token=VC19SV2A1M)](https://codecov.io/gh/guidurbano/musical-notes)
 ![CI](https://github.com/guidurbano/musical-notes/actions/workflows/pipeline.yml/badge.svg)
 
+Musical Notes is a CLI tool to help with scales, chords, and harmonic fields.
 
-Notas musicais é um CLI para ajudar na formação de escalas, acordes e campos
-harmônicos.
+The entire application is based on a `musical-notes` command. This command
+has subcommands related to each action that the application can perform,
+such as `scales`, `chords` and `harmonic-field`.
 
-Toda aplicação é baseada em um comando `musical-notes`. Esse comando
-tem um subcomando relacionado a cada ação que a aplicação pode realizar.
-Como `escalas`, `acordes` e `campo-harmonico`.
+## Installation
 
-## Instalação
-
-Para instalação do CLI do projeto recomendamos que use o `pipx` para fazer
-a instalação:
+To install the CLI of the project we recommend you to use `pipx`:
 
 ```bash
 pipx install musical-notes
 ```
 
-Embora isso seja somente uma recomendação! Você pode instalar o projeto
-com o gerenciador de sua preferência. Como o `pip`:
+Also, you can install the project with your preferred package manager,
+such as pip:
 
 ```bash
 pip install musical-notes
 ```
 
-## Como usar?
+## How to use it
 
-### Escalas
+### Scales
 
-Você pode chamar as escalas via linha de comando. Por exemplo:
+You can call the `scale` via the command line. For example:
 
 ```bash
-musical_notes escala
+musical_notes "scale"
 ```
 
-Retornando os graus e as notas correspondentes a essa escala:
+Returning the degrees and corresponding notes to this scale:
+
 ```
 ┏━━━┳━━━━┳━━━━━┳━━━━┳━━━┳━━━━┳━━━━━┓
 ┃ I ┃ II ┃ III ┃ IV ┃ V ┃ VI ┃ VII ┃
@@ -48,13 +46,13 @@ Retornando os graus e as notas correspondentes a essa escala:
 └───┴────┴─────┴────┴───┴────┴─────┘
 ```
 
-#### Alteração na tônica da escala
+#### Change in the tonic of the scale
 
-O primeiro parâmetro do CLI é a tônica da escala que deseja exibir. Desta forma,
-você pode alterar a escala retornada. Por exemplo, a escala de `F#`:
+The first parameter of the CLI is the tonic of the scale you want to display.
+This way, you can change the returned scale. For example, the scale of `F#`:
 
 ```bash
-musical_notes escalas F#
+musical_notes scale F#
 ```
 
 ```
@@ -65,13 +63,13 @@ musical_notes escalas F#
 └────┴────┴─────┴────┴────┴────┴─────┘
 ```
 
-#### Alteração na tonalidade da escala
+#### Change in the tonality of the scale
 
-O segundo parâmetro do CLI é a tonalidade da escala.
-Por exemplo, a escala de `D#` maior:
+The second parameter of the CLI is the tonality of the scale.
+For example, the `D#` major scale:
 
 ```bash
-musical_notes escalas D# maior
+musical_notes scale D# major
 ```
 
 ```
@@ -82,12 +80,10 @@ musical_notes escalas D# maior
 └────┴────┴─────┴────┴────┴────┴─────┘
 ```
 
-### Acordes
-
-Uso básica
+### Chords
 
 ```bash
-musical_notes acorde
+musical_notes chord
 ┏━━━┳━━━━━┳━━━┓
 ┃ I ┃ III ┃ V ┃
 ┡━━━╇━━━━━╇━━━┩
@@ -95,10 +91,10 @@ musical_notes acorde
 └───┴─────┴───┘
 ```
 
-### Variações na cifra
+### Variations in the chord
 
 ```bash
-musical_notes acorde C+
+musical_notes chord C+
 ┏━━━┳━━━━━┳━━━━┓
 ┃ I ┃ III ┃ V+ ┃
 ┡━━━╇━━━━━╇━━━━┩
@@ -106,19 +102,21 @@ musical_notes acorde C+
 └───┴─────┴────┘
 ```
 
-Até o momento você pode usar acordes maiores, menores, diminuto e aumentados.
+So far, you can use major, minor, diminished, and augmented chords.
 
-!!! info "Sobre os acordes"
-    Pode ser que os acordes que você busque ainda não tenham sido implementados.
-    No momento, somente acordes com tríades foram implementados
+!!! warning "About the chords"
+	It is possible that the chords you are looking for have not yet been
+   implemented. At the time I am writing this tutorial, only triad
+   chords have been implemented. Therefore, you can use major, minor,
+   augmented, and diminished chords.
 
 ### Campo harmônico
 
-Você pode chamr os campos harmônicos via o subcomando `campo-harmonico`. Por
-exemplo,
+You can call the harmonic field via the subcommand `harmonic-field`
+For example,
 
 ```bash
-musical_notes campo-harmonico
+musical_notes harmonic-field
 ┏━━━┳━━━━┳━━━━━┳━━━━┳━━━┳━━━━┳━━━━━━┓
 ┃ I ┃ ii ┃ iii ┃ IV ┃ V ┃ vi ┃ vii° ┃
 ┡━━━╇━━━━╇━━━━━╇━━━━╇━━━╇━━━━╇━━━━━━┩
@@ -126,22 +124,22 @@ musical_notes campo-harmonico
 └───┴────┴─────┴────┴───┴────┴──────┘
 ```
 
-Por padrão os parâmetros utilizados são a tônica de `C` e o campo harmônico `maior`
+By default, the parameters used are the tonic of `C` and the `major` harmonic field.
 
-### Alteração nos campos harmônicos
+### Changes to the harmonic fields
 
-Você pode alterar os parâmetros da tônica e da tonalidade.
+You can change the tonic and tonality parameters.
 
 ```bash
-musical_notes campo-harmonico [TONICA] [TONALIDADE]
+musical_notes harmonic-field [TONIC] [TONALITY]
 ```
 
-#### Alteração na tônica do campo harmônico
+#### Variation of tonic
 
-Um exemplo com o campo harmônico de E:
+You can send the `tonic` of the harmonic field as the first parameter. Such as the A major harmonic field:
 
 ```bash
-musical_notes campo-harmonico E
+musical_notes harmonic-field E
 ┏━━━┳━━━━━┳━━━━━┳━━━━┳━━━┳━━━━━┳━━━━━━┓
 ┃ I ┃ ii  ┃ iii ┃ IV ┃ V ┃ vi  ┃ vii° ┃
 ┡━━━╇━━━━━╇━━━━━╇━━━━╇━━━╇━━━━━╇━━━━━━┩
@@ -149,12 +147,12 @@ musical_notes campo-harmonico E
 └───┴─────┴─────┴────┴───┴─────┴──────┘
 ```
 
-#### Alteração da tonalidade do campo harmônico
+#### Change of tonality of the harmonic field
 
-Um exemplo mudando o campo harmônico para menor de E:
+An example changing the harmonic field to E minor:
 
 ```bash
-musical_notes campo-harmonico E menor
+musical_notes harmonic-field E minor
 ┏━━━━┳━━━━━┳━━━━━┳━━━━┳━━━━┳━━━━┳━━━━━┓
 ┃ i  ┃ ii° ┃ III ┃ iv ┃ v  ┃ VI ┃ VII ┃
 ┡━━━━╇━━━━━╇━━━━━╇━━━━╇━━━━╇━━━━╇━━━━━┩
@@ -162,32 +160,32 @@ musical_notes campo-harmonico E menor
 └────┴─────┴─────┴────┴────┴────┴─────┘
 ```
 
-## Mais informações sobre o CLI
+## More information about the CLI
 
-Para descobrir outras opções, você pode usar a flag `--help`
+If you want to discover more utilities for the commands, you can use the `--help` flag in all subcommands.
 
 ```bash
 musical_notes --help
 
 Usage: musical-notes [OPTIONS] COMMAND [ARGS]...
-Commands  acorde campo-harmonico escala
+Commands  chord harmonic-field scale
 ```
 
 
 ```
 
- Usage: musical-notes escalas [OPTIONS] [TONICA] [TONALIDADE]
+ Usage: musical-notes scale [OPTIONS] [TONIC] [TONALITY]
 
   Arguments
-   tonica          [TONICA]      Tônica da escala [default:c]
-   tonalidade      [TONALIDADE]  Tonalidade da escala [default: maior]
+   tonic          [TONIC]      Tonic of the scale [default:c]
+   tonality      [TONALITY]  Tonality of the scale [default: major]
 ```
 
 ```
 
- Usage: musical-notes campo-harmonico [OPTIONS] [TONICA] [TONALIDADE]
+ Usage: musical-notes harmonic-field [OPTIONS] [TONIC] [TONALITY]
 
   Arguments
-   tonica          [TONICA]      Tônica do campo harmonico [default:c]
-   tonalidade      [TONALIDADE]  Tonalidade do campo [default: maior]
+   tonic          [TONIC]      Tonic of the scale [default:c]
+   tonality      [TONALITY]  Tonality of the scale [default: major]
 ```
