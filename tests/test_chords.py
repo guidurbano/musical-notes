@@ -1,12 +1,13 @@
 from pytest import mark
-from musical_notes.chords import acorde
+from musical_notes.chords import chord
 
 """
-{'notas': ['C', 'E', 'G'], 'graus': ['I', 'III', 'V']}
+{'notes': ['C', 'E', 'G'], 'degrees': ['I', 'III', 'V']}
 """
+
 
 @mark.parametrize(
-        'nota,esperado',
+        'note, expected',
         [
             ('C', ['C', 'E', 'G']),
             ('Cm', ['C', 'D#', 'G']),
@@ -16,13 +17,14 @@ from musical_notes.chords import acorde
             ('F#', ['F#', 'A#', 'C#']),
         ],
 )
-def test_acorde_deve_retornar_as_notas_correspondentes(nota, esperado):
-    notas, _ = acorde(nota).values()
+def test_chord_should_return_corresponding_notes(note, expected):
+    notes, _ = chord(note).values()
 
-    assert esperado == notas
+    assert expected == notes
+
 
 @mark.parametrize(
-        'cifra,esperado',
+        'chord_symbol, expected',
         [
             ('C', ['I', 'III', 'V']),
             ('Cm', ['I', 'III-', 'V']),
@@ -31,7 +33,7 @@ def test_acorde_deve_retornar_as_notas_correspondentes(nota, esperado):
             ('Cm+', ['I', 'III-', 'V+']),
         ],
 )
-def test_acorde_deve_retornar_os_graus_correspondentes(cifra, esperado):
-    _, graus = acorde(cifra).values()
+def test_chord_should_return_corresponding_degrees(chord_symbol, expected):
+    _, degrees = chord(chord_symbol).values()
 
-    assert esperado == graus
+    assert expected == degrees
